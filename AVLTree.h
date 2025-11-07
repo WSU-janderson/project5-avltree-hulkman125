@@ -13,9 +13,13 @@ public:
     using KeyType = std::string;
     using ValueType = size_t;
 
+    int sizeOfSequence;
+
 protected:
     class AVLNode {
     public:
+
+
         KeyType key;
         ValueType value;
         size_t height;
@@ -48,6 +52,8 @@ public:
     bool removeNode(AVLNode*& current);
     // You will implement this, but it is needed for removeNode()
     void balanceNode(AVLNode*& node);
+
+    bool insert(AVLNode*& current, KeyType key, ValueType value);
 
 };
 

@@ -12,7 +12,7 @@ using namespace std;
 
 
 int main() {
-    // AVLTree tree;
+     AVLTree tree;
     // bool insertResult;
     // insertResult = tree.insert("F", 'F');
     // insertResult = tree.insert("F", 'F'); // false, no duplicates allowed
