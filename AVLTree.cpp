@@ -71,7 +71,11 @@ size_t AVLTree::getHeight() const {
 }
 
 
-
+//----------------------------------------------------------------
+//    getHeight: retrieving the height of the node
+//    Returns:  size_t
+//    Parameters: none
+//----------------------------------------------------------------
 size_t AVLTree::AVLNode::getHeight() {
     return height;
 }
@@ -197,6 +201,8 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 //    Parameters: current (AVLNode)
 //----------------------------------------------------------------
 AVLTree::AVLNode* AVLTree::rightRotation(AVLNode* current) {
+
+
     if (current->left->left != nullptr && current->left->right == nullptr) {
         AVLNode* hook = current->left;
         AVLNode* temp = hook->right;
@@ -208,7 +214,24 @@ AVLTree::AVLNode* AVLTree::rightRotation(AVLNode* current) {
         current = hook;
         return current;
     }
-    return current;
+
+    if (current->right != nullptr) {
+        if (getBalance(current->right) == 1) {
+            AVLNode* temp = current->right->left;
+            current->left = temp;
+            current->right->left = nullptr;
+            return current;
+        }
+        if (getBalance(current->right) == -1) {
+            AVLNode* temp = current->left->left;
+            current->right = current->left->left;
+            current->left->left = nullptr;
+            return current;
+        }
+    }
+
+
+        return current;
 }
 
 //----------------------------------------------------------------
@@ -228,6 +251,15 @@ AVLTree::AVLNode* AVLTree::leftRotate(AVLNode* current) {
         current->height = current->getHeight();//testing
         current = hook;
         return current;
+    }
+    else if (current->left == nullptr && current->right->left != nullptr && current->right->right == nullptr) {
+        AVLNode* temp = current->right->left;
+        AVLNode* temp2 = current;
+        current = current->right;
+        current->right = temp;
+        current->left = temp2;
+        temp2->left = nullptr;
+        temp2->right = nullptr;
     }
         return current;
 }

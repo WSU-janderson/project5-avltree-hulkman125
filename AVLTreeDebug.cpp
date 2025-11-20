@@ -92,7 +92,7 @@ int main() {
     cout << endl << endl;
     cout << tree << endl;
 //
-    //removeResult = tree.remove("F"); // "F" has two children
+    removeResult = tree.remove("F"); // "F" has two children
     cout << endl << endl;
     cout << tree << endl;
 //
