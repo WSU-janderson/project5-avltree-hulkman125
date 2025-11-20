@@ -582,10 +582,10 @@ bool AVLTree::contains(AVLNode* &current, KeyType key) {
         if(current->key == key) {
             return true;
         }
-        else if(current->key < key) {
+        else if(current->key > key) {
             return contains(current->left, key);
         }
-        else if(current->key > key) {
+        else if(current->key < key) {
             return contains(current->right, key);
         }
 }
