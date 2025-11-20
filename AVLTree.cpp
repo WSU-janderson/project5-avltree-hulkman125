@@ -714,3 +714,9 @@ void AVLTree:: deleteNodes(AVLTree::AVLNode *&current) { //self-made function fo
 	deleteNodes(current->right);
 }
 
+/*
+ * this Tree project gave me
+ * such a headache it made me wanna
+ * encourage deforestagion
+ */
+
